@@ -1,6 +1,7 @@
 # Practice
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+The purpose of this project is just for practice and prototyping. 
+During my Angular2 learning processs, I found that Angular2 is very powerful but it has too many things I have to memorize.
+So I try to build this demo app with the components I will frequently use in my future projects and therefore I can copy any component whenever I need it.
 
 ## Development server
 
