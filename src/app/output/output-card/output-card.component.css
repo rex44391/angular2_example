@@ -1,0 +1,7 @@
+.border-3 {
+    border-width:3px !important;
+}
+.my-custom-class .tooltip-inner {
+    font-size: 150%;
+    display: block;
+}

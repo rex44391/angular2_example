@@ -1,0 +1,52 @@
+<div #alert class="alert alert-success alert-dismissible fade" role="alert">
+   <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  {{ savedStr }}'s data has been saved!!
+</div>
+
+<div class="container p-1">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label class="m-1">
+        First Name:
+        <input class="form-control" type="text" formControlName="firstName" required>
+      </label>
+
+      <label class="m-1">
+        Last Name:
+        <input class="form-control" type="text" formControlName="lastName">
+      </label>
+    </div>
+
+    <div class="form-group" formGroupName="address">
+      <h5 class="display-5">Address</h5>
+      <label>
+        Street:
+        <input type="text" formControlName="street">
+      </label>
+
+      <label>
+        City:
+        <input type="text" formControlName="city">
+      </label>
+
+      <label>
+        State:
+        <input type="text" formControlName="state">
+      </label>
+
+      <label>
+        Zip Code:
+        <input type="text" formControlName="zip">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea class="form-control" rows="3" formControlName="description"></textarea>
+    </div>
+    <button class="btn btn-outline-primary m-1" type="submit" [disabled]="!profileForm.valid">Submit</button>
+    <button class="btn btn-outline-info m-1" type="reset">Clean</button>
+    <p>Form Status: {{ profileForm.status }}</p>
+  </form>
+</div>

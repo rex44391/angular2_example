@@ -1,0 +1,37 @@
+<div class="card border"
+		[ngClass]="{
+		'border-danger': isSelected,
+		'border-3': isSelected
+	}"
+	placement="bottom" [ngbTooltip]="input.description" tooltipClass="my-custom-class"
+	(click)="onClick()" [contextMenu]="static">
+	<img src="https://globalcincinnati.org/wp-content/uploads/2017/10/icon_membership_individual.png" class="card-img-top">
+	<div class="card-body bg-light border">
+		<h5 class="card-title text-center font-weight-bold"> {{ input.firstName }} {{ input.lastName }}</h5>
+		<p class="card-text text-center display-5">
+			{{ input.address.street }}, {{ input.address.city }} <br>
+			{{ input.address.state }}, {{input.address.zip }}
+		</p>
+	</div>
+</div>
+
+
+<context-menu #static>
+	<ng-template contextMenuItem [visible]="true" [enabled]="true" (execute)="editProfile()">
+		<span class="text-info" [class.font-weight-bold]="mouseOvered1" [class.font-italic]="mouseOvered1" (mouseover)="mouseOvered1=true"
+		 (mouseout)="mouseOvered1=false">
+			Edit This Profile
+		</span>
+	</ng-template>
+	<ng-template contextMenuItem [visible]="true" [enabled]="true" (execute)="deleteThis()">
+		<span class="text-danger" [class.font-weight-bold]="mouseOvered2" [class.font-italic]="mouseOvered2" (mouseover)="mouseOvered2=true"
+		 (mouseout)="mouseOvered2=false">
+			Delete This Profile
+		</span>
+	</ng-template>
+	<ng-template contextMenuItem [visible]="true" [enabled]="true" (execute)="cancel()">
+		<span class="text-muted" [class.font-italic]="mouseOvered4" (mouseover)="mouseOvered4=true" (mouseout)="mouseOvered4=false">
+			Cancel
+		</span>
+	</ng-template>
+</context-menu>

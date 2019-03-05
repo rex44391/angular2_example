@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8" style="height: 100vh">
+      <ngx-charts-line-chart 
+        [scheme]="colorScheme" 
+        [results]="multi" 
+        [gradient]="gradient"
+        [xAxis]="showXAxis" [yAxis]="showYAxis" 
+        [legend]="showLegend" 
+        [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [autoScale]="autoScale"
+        [timeline]="timeline" (select)="onSelect($event)">
+      </ngx-charts-line-chart>
+    </div>
+    <div class="col-4">
+      <app-chart-panel (drawStart)="startDraw($event)"></app-chart-panel>
+    </div>
+  </div>
+</div>

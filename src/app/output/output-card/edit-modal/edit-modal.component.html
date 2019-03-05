@@ -1,0 +1,54 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Profile Editor</h4>
+    <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title"
+        (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form [formGroup]="profileForm">
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="m-1">
+                First Name:
+                <input class="form-control" type="text" formControlName="firstName" required>
+            </label>
+
+            <label class="m-1">
+                Last Name:
+                <input class="form-control" type="text" formControlName="lastName">
+            </label>
+        </div>
+
+        <div class="form-group" formGroupName="address">
+            <h5 class="display-5">Address</h5>
+            <label>
+                Street:
+                <input type="text" formControlName="street">
+            </label>
+
+            <label>
+                City:
+                <input type="text" formControlName="city">
+            </label>
+
+            <label>
+                State:
+                <input type="text" formControlName="state">
+            </label>
+
+            <label>
+                Zip Code:
+                <input type="text" formControlName="zip">
+            </label>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" rows="3" formControlName="description"></textarea>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+        <button type="button" ngbAutofocus class="btn btn-info"
+            [disabled]="!profileForm.valid"  (click)="save()">Save</button>
+    </div>
+</form>

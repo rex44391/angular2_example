@@ -1,0 +1,16 @@
+<div #alert class="alert alert-dismissible fade" role="alert">
+   <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  {{ alertContent }}
+</div>
+
+<div class="card-deck m-2">
+    <app-output-card 
+      *ngFor="let profile of profileList" 
+      [input]="profile"
+      (onSelected)="onChildSelected($event)"
+      (onEdited) = "openEditAlert($event)"
+      (onDeleted)="openDelAlert($event)">
+    </app-output-card>
+</div>
