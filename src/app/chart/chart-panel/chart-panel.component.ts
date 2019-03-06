@@ -16,6 +16,7 @@ export class ChartPanelComponent implements OnInit {
   };
 
   @Output() drawStart = new EventEmitter<any[]>();
+  @Output() drawReset = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -44,5 +45,15 @@ export class ChartPanelComponent implements OnInit {
   onStartClick() {
     //console.log(this.chartParam);
     this.drawStart.emit(this.chartParam);
+  }
+
+  onResetClick() {
+    this.drawReset.emit(true);
+    this.chartParam = [{
+      name: 'A',
+      cash: 50000,
+      minValue: -0.05,
+      maxValue: 0.05
+    } ];
   }
 }

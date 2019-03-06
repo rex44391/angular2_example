@@ -13,7 +13,7 @@
       </ngx-charts-line-chart>
     </div>
     <div class="col-4">
-      <app-chart-panel (drawStart)="startDraw($event)"></app-chart-panel>
+      <app-chart-panel (drawStart)="startDraw($event)" (drawReset)="resetDraw($event)"></app-chart-panel>
     </div>
   </div>
 </div>
